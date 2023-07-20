@@ -15,8 +15,10 @@ export default function geraSenha(qnt, maisc, minusc, num, simb) {
         num && senhaArray.push(geraNum())
         simb && senhaArray.push(geraSimb())
     }
+    senhaArray.slice(0, qnt)
+    
     if (qnt === 0) return 'quantidade não pode ser 0'
-    return senhaArray.join('').slice(0, qnt) || 'Nada selecionado'
+    return senhaArray.slice(0,qnt).sort(()=> 0.5 - Math.random()).join('') || 'Nada selecionado'
 }
 
 
